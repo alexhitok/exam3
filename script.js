@@ -117,4 +117,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial calc
     calculateValues();
+
+    // Translations
+    const translations = {
+        en: {
+            language: "Language",
+            currency: "Currency",
+            campaignStart: "Campaign Start",
+            campaignEnd: "Campaign End",
+            totalRevenue: "Total Revenue",
+            avgOrderValue: "Avg. Order Value",
+            prospects: "Prospects",
+            leads: "Leads",
+            customers: "Customers",
+            leadResponseRate: "Lead Response Rate",
+            prospectResponseRate: "Prospect Response Rate"
+        },
+        bg: {
+            language: "Език",
+            currency: "Валута",
+            campaignStart: "Начало на кампанията",
+            campaignEnd: "Край на кампанията",
+            totalRevenue: "Общи приходи",
+            avgOrderValue: "Ср. стойност на поръчката",
+            prospects: "Потенциални",
+            leads: "Лийдове",
+            customers: "Клиенти",
+            leadResponseRate: "Процент на отговор (Лийдове)",
+            prospectResponseRate: "Процент на отговор (Потенциални)"
+        },
+        de: {
+            language: "Sprache",
+            currency: "Währung",
+            campaignStart: "Kampagnenstart",
+            campaignEnd: "Kampagnenende",
+            totalRevenue: "Gesamtumsatz",
+            avgOrderValue: "Durchschn. Bestellwert",
+            prospects: "Interessenten",
+            leads: "Leads",
+            customers: "Kunden",
+            leadResponseRate: "Lead-Antwortrate",
+            prospectResponseRate: "Interessenten-Antwortrate"
+        },
+        fr: {
+            language: "Langue",
+            currency: "Devise",
+            campaignStart: "Début de campagne",
+            campaignEnd: "Fin de campagne",
+            totalRevenue: "Revenu total",
+            avgOrderValue: "Valeur moy. des commandes",
+            prospects: "Prospects",
+            leads: "Contacts",
+            customers: "Clients",
+            leadResponseRate: "Taux de réponse des contacts",
+            prospectResponseRate: "Taux de réponse des prospects"
+        },
+        es: {
+            language: "Idioma",
+            currency: "Moneda",
+            campaignStart: "Inicio de campaña",
+            campaignEnd: "Fin de campaña",
+            totalRevenue: "Ingresos totales",
+            avgOrderValue: "Valor promedio del pedido",
+            prospects: "Prospectos",
+            leads: "Leads",
+            customers: "Clientes",
+            leadResponseRate: "Tasa de respuesta de leads",
+            prospectResponseRate: "Tasa de respuesta de prospectos"
+        }
+    };
+
+    const languageSelect = document.getElementById('language');
+    languageSelect.addEventListener('change', (e) => {
+        const lang = e.target.value;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+    });
 });

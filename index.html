@@ -22,21 +22,25 @@
         <div class="main-layout">
             <aside class="sidebar">
                 <div class="input-group">
-                    <label>Language</label>
+                    <label data-i18n="language">Language</label>
                     <select id="language">
-                        <option>🇺🇸 English</option>
+                        <option value="en">🇺🇸 English</option>
+                        <option value="bg">🇧🇬 Bulgarian</option>
+                        <option value="de">🇩🇪 German</option>
+                        <option value="fr">🇫🇷 French</option>
+                        <option value="es">🇪🇸 Spanish</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label>Currency</label>
+                    <label data-i18n="currency">Currency</label>
                     <select id="currency">
                         <option>$ US Dollar</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label>Campaign Start</label>
+                    <label data-i18n="campaignStart">Campaign Start</label>
                     <div class="date-input">
                         <input type="text" value="08-May-2026" readonly>
                         <span class="icon-calendar"></span>
@@ -44,7 +48,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Campaign End</label>
+                    <label data-i18n="campaignEnd">Campaign End</label>
                     <div class="date-input">
                         <input type="text" value="04-Nov-2026" readonly>
                         <span class="icon-calendar"></span>
@@ -52,7 +56,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Total Revenue</label>
+                    <label data-i18n="totalRevenue">Total Revenue</label>
                     <div class="text-input relative">
                         <span class="prefix">$</span>
                         <input type="number" id="totalRevenue" value="10000">
@@ -60,7 +64,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Avg. Order Value</label>
+                    <label data-i18n="avgOrderValue">Avg. Order Value</label>
                     <div class="text-input relative">
                         <span class="prefix">$</span>
                         <input type="number" id="avgOrderValue" value="1000">
@@ -102,7 +106,7 @@
                                         <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
                                     </svg>
                                 </span>
-                                <span>Prospects</span>
+                                <span data-i18n="prospects">Prospects</span>
                                 <span class="percent">100%</span>
                             </div>
                             <div class="card-value" id="cardProspects">125</div>
@@ -116,7 +120,7 @@
                                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                                     </svg>
                                 </span>
-                                <span>Leads</span>
+                                <span data-i18n="leads">Leads</span>
                                 <span class="percent" id="leadsPercent">20%</span>
                             </div>
                             <div class="card-value" id="cardLeads">25</div>
@@ -130,7 +134,7 @@
                                         <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 003.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM7 10.82C5.84 10.4 5 9.3 5 8V7h2v3.82zM19 8c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
                                     </svg>
                                 </span>
-                                <span>Customers</span>
+                                <span data-i18n="customers">Customers</span>
                                 <span class="percent" id="customersPercent">8%</span>
                             </div>
                             <div class="card-value" id="cardCustomers">10</div>
@@ -141,13 +145,13 @@
 
                 <div class="bottom-row">
                     <div class="slider-group">
-                        <label>Lead Response Rate</label>
+                        <label data-i18n="leadResponseRate">Lead Response Rate</label>
                         <input type="range" id="leadResponseRate" min="0" max="100" value="40" step="1">
                         <div class="slider-value" id="leadResponseValue">40.00%</div>
                     </div>
 
                     <div class="slider-group">
-                        <label>Prospect Response Rate</label>
+                        <label data-i18n="prospectResponseRate">Prospect Response Rate</label>
                         <input type="range" id="prospectResponseRate" min="0" max="100" value="20" step="1">
                         <div class="slider-value" id="prospectResponseValue">20.00%</div>
                     </div>
