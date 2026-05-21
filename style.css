@@ -75,7 +75,7 @@ body {
     font-weight: 500;
 }
 
-select, input[type="text"], input[type="number"] {
+select, input[type="text"], input[type="number"], input[type="date"] {
     width: 100%;
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -85,6 +85,7 @@ select, input[type="text"], input[type="number"] {
     font-family: inherit;
     font-size: 14px;
     outline: none;
+    color-scheme: dark;
 }
 
 .relative {
