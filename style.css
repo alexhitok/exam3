@@ -228,15 +228,30 @@ select, input[type="text"], input[type="number"], input[type="date"] {
 .bar {
     position: absolute;
     left: 0;
-    top: 0;
-    height: 100%;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 3px 3px 0;
 }
 
-.bar-prospects { background-color: var(--prospect-color); z-index: 1; }
-.bar-leads { background-color: var(--lead-color); z-index: 2; }
-.bar-customers { background-color: var(--customer-color); z-index: 3; }
+/* Outer / darkest layer */
+.bar-prospects {
+    top: 1px;
+    height: 42px;
+    background-color: var(--prospect-color);
+    z-index: 1;
+}
 
+.bar-leads {
+    top: 4px;
+    height: 36px;
+    background-color: var(--lead-color);
+    z-index: 2;
+}
+
+.bar-customers {
+    top: 7px;
+    height: 30px;
+    background-color: var(--customer-color);
+    z-index: 3;
+}
 /* Tooltip */
 .tooltip {
     position: absolute;
