@@ -5,9 +5,9 @@
     --text-muted: #8b96a5;
     --border-color: #2d3546;
     
-    --prospect-color: #6a7488;
-    --lead-color: #8b96a5;
-    --customer-color: #cfd8e3;
+    --prospect-color: #616e81;
+    --lead-color: #8594a6;
+    --customer-color: #c5d0db;
     
     --slider-fill: #cfd8e3;
     --slider-track: #2a3140;
@@ -211,62 +211,66 @@ select, input[type="text"], input[type="number"] {
 
 /* Cards */
 .summary-cards {
-    width: 220px;
+    width: 205px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .card {
     background-color: var(--prospect-color);
     border-radius: 12px;
-    padding: 16px;
+    padding: 10px 12px;
 }
 
 .card:nth-child(2) { background-color: var(--lead-color); }
-.card:nth-child(2) .card-value { color: #141923; }
-.card:nth-child(2) .card-header { color: #141923; }
-.card:nth-child(2) .percent { color: #141923; }
-.card:nth-child(2) .card-bar-container { background: rgba(0,0,0,0.1); }
-.card:nth-child(2) .card-bar { background: #fff; }
-
 .card:nth-child(3) { background-color: var(--customer-color); }
-.card:nth-child(3) .card-value { color: #141923; }
-.card:nth-child(3) .card-header { color: #141923; }
-.card:nth-child(3) .percent { color: #141923; }
-.card:nth-child(3) .card-bar-container { background: rgba(0,0,0,0.1); }
-.card:nth-child(3) .card-bar { background: #fff; }
 
 .card-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #141923;
+}
+
+.card-header .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(20, 25, 35, 0.25);
+    border-radius: 6px;
 }
 
 .percent {
     margin-left: auto;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .card-value {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    color: #ffffff;
+    letter-spacing: 1.5px;
 }
 
 .card-bar-container {
     height: 8px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.15);
     border-radius: 4px;
     overflow: hidden;
 }
 
 .card-bar {
     height: 100%;
-    background: #fff;
+    background: #ffffff;
     border-radius: 4px;
 }
 
