@@ -57,35 +57,39 @@ body {
 
 /* Sidebar */
 .sidebar {
-    background-color: var(--bg-panel);
+    background-color: rgba(30, 41, 57, 0.5);
     width: 260px;
-    border-radius: 12px;
-    padding: 20px;
+    border-radius: 16px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(54, 65, 83, 0.5);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25),
+                0 8px 10px -6px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(8px);
 }
 
 .input-group label {
     display: block;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 8px;
-    color: var(--text-main);
+    color: #d1d5db;
     font-weight: 500;
 }
 
-select, input[type="text"], input[type="number"], input[type="date"] {
+
+select,
+input[type="text"],
+input[type="number"],
+input[type="date"] {
     width: 100%;
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
+    background-color: rgba(54, 65, 83, 0.5);
+    color: #f3f4f6;
+    border: 1px solid #4a5565;
     border-radius: 8px;
-    padding: 10px 12px;
-    font-family: inherit;
+    padding: 10px 16px;
     font-size: 14px;
-    outline: none;
-    color-scheme: dark;
 }
 
 .relative {
@@ -428,4 +432,9 @@ input[type=range]::-moz-range-thumb {
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border: 1px solid #d6dee8;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(1.4);
+    opacity: 0.85;
+    cursor: pointer;
 }
