@@ -289,11 +289,12 @@
             display: flex;
             flex-direction: column;
             justify-content: stretch;
-            gap: 4px;
+            gap: 6px;
             padding-left: 0px;
             margin-left: 40px;
             border-left: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
+            margin-top: 6px;
             padding-bottom: 0px;
             background-image: 
                 linear-gradient(to right, rgba(139, 150, 165, 0.15) 1px, transparent 1px),
@@ -410,7 +411,7 @@
         .bar {
             position: absolute;
             left: 0;
-            border-radius: 0 3px 3px 0;
+            border-radius: 0;
         }
 
         /* Outer / darkest layer */
@@ -422,15 +423,15 @@
         }
 
         .bar-leads {
-            top: 5px;
-            height: calc(100% - 10px);
+            top: 3px;
+            height: calc(100% - 6px);
             background-color: var(--lead-color);
             z-index: 2;
         }
 
         .bar-customers {
-            top: 10px;
-            height: calc(100% - 20px);
+            top: 6px;
+            height: calc(100% - 12px);
             background-color: var(--customer-color);
             z-index: 3;
         }
