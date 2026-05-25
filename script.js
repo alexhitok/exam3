@@ -129,15 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const pBar = document.createElement('div');
             pBar.className = 'bar bar-prospects';
-            pBar.style.width = scale(mProspects) + '%';
+            pBar.style.width = '0%'; // Start at 0 for animation
             
             const lBar = document.createElement('div');
             lBar.className = 'bar bar-leads';
-            lBar.style.width = scale(mLeads) + '%';
+            lBar.style.width = '0%';
             
             const cBar = document.createElement('div');
             cBar.className = 'bar bar-customers';
-            cBar.style.width = scale(mCustomers) + '%';
+            cBar.style.width = '0%';
+
+            // Trigger animation after append
+            setTimeout(() => {
+                pBar.style.width = scale(mProspects) + '%';
+                lBar.style.width = scale(mLeads) + '%';
+                cBar.style.width = scale(mCustomers) + '%';
+            }, 50 * i); // Staggered delay
 
             [pBar, lBar, cBar].forEach((bar) => {
                 bar.addEventListener('mouseenter', (event) => {
