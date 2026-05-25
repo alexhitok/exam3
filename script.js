@@ -18,6 +18,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const customersBarFill = document.getElementById('customersBarFill');
 
     const chartArea = document.getElementById('chartArea');
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.style.visibility = 'hidden';
+    document.body.appendChild(tooltip);
+
+    function updateTooltipPosition(event) {
+        const offset = 14;
+        const tooltipWidth = tooltip.offsetWidth;
+        const tooltipHeight = tooltip.offsetHeight;
+
+        let left = event.clientX + offset;
+        let top = event.clientY + offset;
+
+        if (left + tooltipWidth > window.innerWidth - 8) {
+            left = event.clientX - tooltipWidth - offset;
+        }
+
+        if (top + tooltipHeight > window.innerHeight - 8) {
+            top = event.clientY - tooltipHeight - offset;
+        }
+
+        tooltip.style.left = `${Math.max(8, left)}px`;
+        tooltip.style.top = `${Math.max(8, top)}px`;
+    }
+
+    function showTooltip(event, month, prospects, leads, customers) {
+        tooltip.innerHTML = `Month #${month}<br>Prospects: ${prospects}<br>Leads: ${leads}<br>Customers: ${customers}`;
+        tooltip.style.visibility = 'visible';
+        tooltip.style.opacity = '1';
+        updateTooltipPosition(event);
+    }
+
+    function hideTooltip() {
+        tooltip.style.opacity = '0';
+        tooltip.style.visibility = 'hidden';
+    }
 
     function updateSliderBackground(slider) {
         // Calculate percentage for gradient
@@ -84,8 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const cBar = document.createElement('div');
             cBar.className = 'bar bar-customers';
             cBar.style.width = scale(mCustomers) + '%';
-            
-            pBar.title = `Month #${i}\nProspects: ${mProspects}\nLeads: ${mLeads}\nCustomers: ${mCustomers}`;
+
+            [pBar, lBar, cBar].forEach((bar) => {
+                bar.addEventListener('mouseenter', (event) => {
+                    showTooltip(event, i, mProspects, mLeads, mCustomers);
+                });
+
+                bar.addEventListener('mousemove', updateTooltipPosition);
+                bar.addEventListener('mouseleave', hideTooltip);
+            });
 
             wrapper.appendChild(pBar);
             wrapper.appendChild(lBar);

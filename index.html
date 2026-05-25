@@ -12,11 +12,12 @@
         <header class="header">
             <div class="logo">
                 <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect width="24" height="24" rx="4" fill="#cfd6df"/>
-                    <g transform="translate(12 12) scale(1.45) translate(-12 -12)">
-                        <path d="M6 8h12l-4.5 5.2v2.6l-3 1.1v-3.4L6 8z" fill="#5d6d82"/>
+                    <rect width="24" height="24" rx="4" fill="#cfd8e3"/>
+                    <g transform="translate(12 12) scale(1.65) translate(-12 -12)">
+                        <path d="M6 8h12l-4.5 5.2v2.6l-3 1.1v-3.4L6 8z" fill="#4b5563"/>
                     </g>
                 </svg>
+
                 <div class="logo-text">
                     <span class="logo-lead">Lead</span><span class="logo-predictor">Predictor</span>
                 </div>
@@ -30,7 +31,7 @@
                     <div class="language-select-wrap">
                         <span class="us-flag" aria-hidden="true"></span>
                         <select id="language" class="language-select">
-                            <option value="en">🇺🇸 English</option>
+                            <option value="en">English</option>
                             <option value="bg">🇧🇬 Bulgarian</option>
                             <option value="de">🇩🇪 German</option>
                             <option value="fr">🇫🇷 French</option>
@@ -41,9 +42,11 @@
 
                 <div class="input-group">
                     <label data-i18n="currency">Currency</label>
-                    <select id="currency">
-                        <option>$ US Dollar</option>
-                    </select>
+                    <div class="select-wrap">
+                        <select id="currency">
+                            <option>$ US Dollar</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -56,7 +59,7 @@
                 <div class="input-group">
                     <label data-i18n="campaignEnd">Campaign End</label>
                     <div class="date-input">
-                        <input type="date" value="2026-11-04">
+                        <input type="date" value="2026-11-21">
                     </div>
                 </div>
 
