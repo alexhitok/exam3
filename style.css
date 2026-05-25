@@ -260,138 +260,64 @@ input:focus {
 }
 
 .chart-area {
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 45px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    border-left: 1px solid var(--border-glass);
-    border-bottom: 1px solid var(--border-glass);
+    margin-left: 40px;
+    margin-bottom: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background-image: 
         linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: calc(100% / 6) calc(100% / 6);
+    background-size: 20% 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 10px 0;
 }
 
 .chart-y-axis {
-    position: absolute;
-    left: 10px;
-    top: 40px;
-    bottom: 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    color: var(--text-dim);
-    font-size: 11px;
-    font-weight: 600;
-}
-
-.chart-y-axis span {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.tick-y {
-    width: 6px;
-    height: 1px;
-    background: var(--border-glass);
-}
-
-.y-label {
-    position: absolute;
-    left: -25px;
-    top: 50%;
-    transform: rotate(-90deg) translateY(-50%);
+    color: var(--text-muted);
     font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 .chart-x-axis {
-    position: absolute;
-    left: 75px;
-    right: 30px;
-    bottom: 35px;
-    height: 25px;
-    display: flex;
-    justify-content: space-between;
-    color: var(--text-dim);
+    color: var(--text-muted);
     font-size: 10px;
-    font-weight: 600;
 }
-
-.chart-x-axis > span {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: translateX(-50%);
-    white-space: nowrap;
-}
-
-.chart-x-axis .tick {
-    width: 1px;
-    height: 6px;
-    background: var(--border-glass);
-    margin-bottom: 4px;
-}
-
-/* Individual X-axis label positioning */
-.chart-x-axis > span:nth-child(1) { left: 0%; transform: none; align-items: flex-start; }
-.chart-x-axis > span:nth-child(2) { left: 16.66%; }
-.chart-x-axis > span:nth-child(3) { left: 33.33%; }
-.chart-x-axis > span:nth-child(4) { left: 50%; }
-.chart-x-axis > span:nth-child(5) { left: 66.66%; }
-.chart-x-axis > span:nth-child(6) { left: 83.33%; }
-.chart-x-axis > span:nth-child(7) { left: 100%; transform: translateX(-100%); align-items: flex-end; }
 
 .bar-wrapper {
-    height: 32px;
+    height: 36px;
     position: relative;
-    width: 100%;
+    margin: 4px 0;
     transition: transform 0.3s ease;
-    z-index: 2;
 }
 
 .bar-wrapper:hover {
-    transform: scaleX(1.01);
+    transform: scaleX(1.02);
 }
 
 .bar {
-    position: absolute;
-    left: 0;
-    height: 100%;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .bar-prospects {
     background: var(--prospect-gradient);
-    opacity: 0.2;
-    z-index: 1;
+    opacity: 0.3;
 }
 
 .bar-leads {
     background: var(--lead-gradient);
-    top: 4px;
-    height: calc(100% - 8px);
-    opacity: 0.5;
-    z-index: 2;
+    top: 6px;
+    height: calc(100% - 12px);
+    opacity: 0.6;
 }
 
 .bar-customers {
     background: var(--customer-gradient);
-    top: 8px;
-    height: calc(100% - 16px);
-    box-shadow: 0 0 20px var(--glow-tertiary);
-    z-index: 3;
+    top: 10px;
+    height: calc(100% - 20px);
+    box-shadow: 0 0 15px var(--glow-tertiary);
 }
 
 /* Summary Cards */
