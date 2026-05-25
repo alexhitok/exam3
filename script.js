@@ -62,6 +62,23 @@ document.addEventListener('DOMContentLoaded', () => {
         slider.style.setProperty('--value', `${value}%`);
     }
 
+    function countUp(element, endValue) {
+        const startValue = parseInt(element.textContent.replace(/[^0-9]/g, '')) || 0;
+        const duration = 1000;
+        let startTimestamp = null;
+        
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const current = Math.floor(progress * (endValue - startValue) + startValue);
+            element.textContent = current.toLocaleString();
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
     function calculateValues() {
         // Parse inputs
         const totalRevenue = parseFloat(totalRevenueInput.value) || 0;
@@ -74,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const leads = leadResponseRate > 0 ? Math.round(customers / leadResponseRate) : 0;
         const prospects = prospectResponseRate > 0 ? Math.round(leads / prospectResponseRate) : 0;
 
-        // Display summary cards
-        cardCustomers.textContent = customers;
-        cardLeads.textContent = leads;
-        cardProspects.textContent = prospects;
+        // Display summary cards with animation
+        countUp(cardCustomers, customers);
+        countUp(cardLeads, leads);
+        countUp(cardProspects, prospects);
 
         const lPercent = prospects > 0 ? Math.round((leads / prospects) * 100) : 0;
         const cPercent = prospects > 0 ? Math.round((customers / prospects) * 100) : 0;
@@ -112,15 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const pBar = document.createElement('div');
             pBar.className = 'bar bar-prospects';
-            pBar.style.width = scale(mProspects) + '%';
-
+            pBar.style.width = '0%'; // Start at 0 for animation
+            
             const lBar = document.createElement('div');
             lBar.className = 'bar bar-leads';
-            lBar.style.width = scale(mLeads) + '%';
-
+            lBar.style.width = '0%';
+            
             const cBar = document.createElement('div');
             cBar.className = 'bar bar-customers';
-            cBar.style.width = scale(mCustomers) + '%';
+            cBar.style.width = '0%';
+
+            // Trigger animation after append
+            setTimeout(() => {
+                pBar.style.width = scale(mProspects) + '%';
+                lBar.style.width = scale(mLeads) + '%';
+                cBar.style.width = scale(mCustomers) + '%';
+            }, 50 * i); // Staggered delay
 
             [pBar, lBar, cBar].forEach((bar) => {
                 bar.addEventListener('mouseenter', (event) => {
@@ -161,6 +185,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial calc
     calculateValues();
+
+    // 3D Card Effect
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)`;
+        });
+    });
 
     // Translations
     const translations = {
